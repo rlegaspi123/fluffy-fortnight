@@ -57,6 +57,7 @@ class HelloWorld {
 		Scanner sc = new Scanner(System.in);
 		int choice = sc.nextInt();				
 		
+		//This is another person's work that I copied from StackOverflow. All it does really is shuffle the elements in the array
 		//This will shuffle the array
 		shuffleArray(randomQuestions, fakeAndReal);
 		
@@ -83,7 +84,7 @@ class HelloWorld {
 		System.out.println("Score is: " + score + " out of " + choice);
 	}
 	
-	  // Implementing Fisher–Yates shuffle
+	  // Implementing Fisherâ€“Yates shuffle
 	  static void shuffleArray(String[] question, boolean[] answer)
 	  {
 	    // If running on Java 6 or older, use `new Random()` on RHS here
