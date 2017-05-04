@@ -1,0 +1,156 @@
+final int ARRAY_SIZE = 10; 
+    
+     
+    
+    String [] randomQuestions = {"Dropping a penny from a 10ft building can kill a person",
+                                 "Does oil can stop sticky the pasta", 
+                                 "Adding Sprinkle of salt can boil the water much quicker",
+                                 "Dogs sweat by salivating",
+                                 "Alcohol can decrease your thinking",
+                                 "Alcohol keeps you warm",
+                                 "Bulls are colour blinded",
+                                 "Nails and hair keep growing after your death",
+                                 "Mount Everest is the tallest mountain",
+                                 "2D animated girls are better than real life girls"};
+                                   
+     
+    boolean [] fakeAndReal = {false,false,false,false,true,true,true,false,true,true};
+    int [] fakeCountGame ={}; 
+    
+    
+   
+    /**
+     * Act - do whatever the fakeNewsGame wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+     public void act() 
+    {
+    
+
+ 
+        int choice = selectGame(); 
+
+        if(choice==1){
+            System.out.println("You have chosen the count game");
+            countFakeGame();
+        }
+        else 
+        { if(choice==2){
+            System.out.println("You have chosen the fake/real news game"); 
+            fakeOrRealNews();
+        }
+        else
+        { if(choice!=1&&choice!=2)
+            { System.out.println("Please pick between 1 and 2 game choices only"); 
+        
+                
+                
+         
+                                           
+        
+           
+            }
+        }
+    }
+ }
+
+public int selectGame(){
+    
+  String strgameChoice;
+  int gameType; 
+  
+  strgameChoice = JOptionPane.showInputDialog("Please select which game you want to play: \nPress 1 to play"
+  
+                                         + "fake count game \nPress 2 to play fake or real news game");
+  gameType = Integer.parseInt(strgameChoice); 
+  
+  
+    
+   return gameType;  
+}
+
+public void fakeOrRealNews(){
+    
+    
+    String strnumQuestions;
+    
+    int noOfQuestions; 
+    
+    strnumQuestions = JOptionPane.showInputDialog("Welcome to the Fake or Real news game!"+ 
+                                                   "\nPlease enter "+"the number of questions"
+                                                   +"(min of 3 and max of 10)");
+    noOfQuestions = Integer.parseInt(strnumQuestions);
+    
+    boolean[]yourGuess = {false,false,false,false,false,false,false,false,false,false};
+    
+       
+     for(int score=0;score<noOfQuestions;score++){
+        System.out.println(randomQuestions[score]);
+         
+    
+    
+         
+         
+    
+         String strtrueAndFalse; 
+         int response;
+          strtrueAndFalse= JOptionPane.showInputDialog("Is the question true or false?"+
+                                                           "/n enter 0=false and 1=true");
+                                                           
+         response = Integer.parseInt(strtrueAndFalse);
+         
+         if(response==0){
+             yourGuess[score]=false;
+            }
+            else{
+                yourGuess[score]=true;
+   
+          
+
+
+        }
+    }
+         for(int count=0;count<noOfQuestions;count++){
+             System.out.println(randomQuestions[count]+" "+ fakeAndReal[count]+" "+yourGuess[count]);
+    }
+
+}
+ public int countFakeGame(){
+     
+      String strnumQuestions;
+    int fakeCount=0; 
+    int noOfQuestions; 
+    
+    strnumQuestions = JOptionPane.showInputDialog("Welcome to the Fake or Real news game!"+ 
+                                                   "\nPlease enter "+"the number of questions"
+                                                   +"(min of 3 and max of 10)");
+     noOfQuestions = Integer.parseInt(strnumQuestions);
+                                                  
+    
+     for(int count=0;count<noOfQuestions;count++){
+         System.out.println(randomQuestions[count]);
+         
+            if(fakeAndReal[count]==false){
+                fakeCount++;
+            }                    
+                                                   
+   }
+
+    int fakeGuess;
+    String strcount;
+    
+   
+    strcount = JOptionPane.showInputDialog("How many falses are in these questions");
+    fakeGuess = Integer.parseInt(strcount);
+    
+    
+    System.out.println("Your Guess is" +fakeGuess);
+    if(fakeGuess==fakeCount)
+        System.out.println("Congratulations");
+    
+    else
+        System.out.println("Sorry your guess is wrong!/n"+"The actual answer is"+fakeCount);
+    
+    return fakeGuess;
+}   
+} 
